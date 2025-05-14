@@ -37,42 +37,42 @@ const App = () => {
 
   return (
     <>
-      <div className="max-w-md mx-auto mt-10 p-6 border-2 border-gray-300 rounded-xl shadow-lg bg-white space-y-6">
+      <div className="max-w-md mx-auto mt-10 p-6 border-2 border-purple-300 rounded-2xl shadow-2xl bg-gradient-to-r from-indigo-100 to-purple-100 space-y-6">
         
         <div className="flex items-center space-x-4">
           <input
             type="text"
             value={password}
             readOnly
-            placeholder="Generated Password"
+            placeholder="🔐 Your Password"
             ref={passRef}
-            className="flex-grow px-4 py-2 border rounded-md text-gray-700"
+            className="flex-grow px-4 py-2 border border-indigo-400 rounded-md text-purple-800 bg-white shadow-inner"
           />
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+            className="px-4 py-2 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-md hover:from-red-500 hover:to-pink-500 transition shadow-md"
             onClick={copyPasswordToClioBoard}
           >
             Copy
           </button>
         </div>
-
+  
         
-        <div className="space-y-4">
+        <div className="space-y-5">
           
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col space-y-2">
+            <label className="text-sm font-semibold text-purple-700">
+              Length: {length}
+            </label>
             <input
               type="range"
               min={6}
               max={15}
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              className="flex-grow"
+              className="accent-purple-600"
             />
-            <label className="text-sm font-medium text-gray-700">
-              Length: {length}
-            </label>
           </div>
-
+  
           
           <div className="flex items-center space-x-2">
             <input
@@ -80,20 +80,23 @@ const App = () => {
               id="numberInput"
               checked={numberAllowed}
               onChange={() => setNumberAllowed((c) => !c)}
+              className="accent-pink-500"
             />
-            <label htmlFor="numberInput" className="text-gray-700">
+            <label htmlFor="numberInput" className="text-pink-700 font-medium">
               Include Numbers
             </label>
           </div>
-
+  
+        
           <div className="flex items-center space-x-2">
             <input
               type="checkbox"
               id="characterInput"
               checked={characterAllowed}
               onChange={() => setCharacterallowed((c) => !c)}
+              className="accent-blue-500"
             />
-            <label htmlFor="characterInput" className="text-gray-700">
+            <label htmlFor="characterInput" className="text-blue-700 font-medium">
               Include Special Characters
             </label>
           </div>
@@ -101,6 +104,7 @@ const App = () => {
       </div>
     </>
   );
+  
 
 }
 
